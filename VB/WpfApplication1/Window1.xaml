@@ -1,0 +1,71 @@
+﻿<Window x:Class="WpfApplication1.Window1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Window1" Height="300" Width="300" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts">
+    <Window.Resources>
+        <dxc:BrushOverlayConverter x:Key="brushOverlayConverter" />
+    </Window.Resources>
+    <Grid>
+        <dxc:ChartControl Margin="10,12,12,12" Name="chartControl1">
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D>
+                    <dxc:XYDiagram2D.Series>
+                        <dxc:PointSeries2D MarkerSize="40">
+                            <dxc:PointSeries2D.Points>
+                                <dxc:SeriesPoint Argument="A" Value="1" />
+                                <dxc:SeriesPoint Argument="b" Value="2" />
+                            </dxc:PointSeries2D.Points>
+                            <dxc:PointSeries2D.MarkerModel>
+                                <dxc:CustomMarker2DModel>
+                                    <dxc:CustomMarker2DModel.PointTemplate>
+                                        <ControlTemplate>
+                                            <Grid x:Name="model" Background="Transparent" RenderTransformOrigin="0.5,0.5">
+                                                <Grid.RenderTransform>
+                                                    <ScaleTransform />
+                                                </Grid.RenderTransform>
+                                                <Ellipse Stroke="{Binding Path=PointColor, ConverterParameter=Gray, Converter={StaticResource brushOverlayConverter}}" StrokeThickness="2" />
+                                                <Ellipse Stroke="{Binding Path=PointColor, ConverterParameter=Gray, Converter={StaticResource brushOverlayConverter}}" StrokeThickness="2" Margin="4" />
+                                                <Ellipse Margin="8" Fill="{Binding Path=PointColor, ConverterParameter=Gray, Converter={StaticResource brushOverlayConverter}}" />
+                                                <Grid.Triggers>
+                                                    <EventTrigger RoutedEvent="MouseEnter">
+                                                        <BeginStoryboard>
+                                                            <Storyboard TargetName="model">
+                                                                <DoubleAnimation Duration="0:0:0.25" To="1.5" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)">
+                                                                    <DoubleAnimation.EasingFunction>
+                                                                        <BackEase Amplitude="2" EasingMode="EaseOut" />
+                                                                    </DoubleAnimation.EasingFunction>
+                                                                </DoubleAnimation>
+                                                                <DoubleAnimation Duration="0:0:0.25" To="1.5" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)">
+                                                                    <DoubleAnimation.EasingFunction>
+                                                                        <BackEase Amplitude="2" EasingMode="EaseOut" />
+                                                                    </DoubleAnimation.EasingFunction>
+                                                                </DoubleAnimation>
+                                                            </Storyboard>
+                                                        </BeginStoryboard>
+                                                    </EventTrigger>
+                                                    <EventTrigger RoutedEvent="MouseLeave">
+                                                        <BeginStoryboard>
+                                                            <Storyboard TargetName="model">
+                                                                <DoubleAnimation Duration="0:0:0.5" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)">
+                                                                    <DoubleAnimation.EasingFunction>
+                                                                        <CircleEase EasingMode="EaseOut" />
+                                                                    </DoubleAnimation.EasingFunction>
+                                                                </DoubleAnimation>
+                                                                <DoubleAnimation Duration="0:0:0.5" To="1" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)">
+                                                                    <DoubleAnimation.EasingFunction>
+                                                                        <CircleEase EasingMode="EaseOut" />
+                                                                    </DoubleAnimation.EasingFunction>
+                                                                </DoubleAnimation>
+                                                            </Storyboard>
+                                                        </BeginStoryboard>
+                                                    </EventTrigger>
+                                                </Grid.Triggers>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </dxc:CustomMarker2DModel.PointTemplate>
+                                </dxc:CustomMarker2DModel>
+                            </dxc:PointSeries2D.MarkerModel>
+                        </dxc:PointSeries2D>
+                    </dxc:XYDiagram2D.Series>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+        </dxc:ChartControl>
+    </Grid>
+</Window>
