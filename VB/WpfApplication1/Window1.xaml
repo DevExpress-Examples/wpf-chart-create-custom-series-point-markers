@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApplication1.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="300" Width="300" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts">
+    <Grid>
+        <dxc:ChartControl Margin="10,12,12,12" Name="chartControl1" StyleName="Gray">
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D>
+                    <dxc:XYDiagram2D.Series>
+                        <dxc:PointSeries2D MarkerSize="40">
+                            <dxc:PointSeries2D.Points>
+                                <dxc:SeriesPoint Argument="A" Value="1" />
+                                <dxc:SeriesPoint Argument="b" Value="2" />
+                            </dxc:PointSeries2D.Points>
+                            <dxc:PointSeries2D.MarkerModel>
+                                <dxc:CustomMarker2DModel Source="star.xaml" />
+                            </dxc:PointSeries2D.MarkerModel>
+                        </dxc:PointSeries2D>
+                    </dxc:XYDiagram2D.Series>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+        </dxc:ChartControl>
+    </Grid>
+</Window>
