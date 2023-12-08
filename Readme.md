@@ -12,9 +12,9 @@ This example illustrates the capability to create a custom marker.
 
 Follow the steps below to create a custom marker model:
 
-* Assign a [CustomMarker2DModel](xref:https://docs.devexpress.com/WPF/DevExpress.Xpf.Charts.CustomMarker2DModel) object to the `MarkerModel` property.
-* Create a [ControlTemplate](xref:https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/how-to-create-apply-template?view=netdesktop-7.0) with visual elements.
-* Assign this template to the [CustomMarker2DModel.PointTemplate](xref:https://docs.devexpress.com/WPF/DevExpress.Xpf.Charts.CustomMarker2DModel.PointTemplate) property.
+* Assign a [CustomMarker2DModel](https://docs.devexpress.com/WPF/DevExpress.Xpf.Charts.CustomMarker2DModel) object to the `MarkerModel` property.
+* Create a [ControlTemplate](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/how-to-create-apply-template?view=netdesktop-7.0) with visual elements.
+* Assign this template to the [CustomMarker2DModel.PointTemplate](https://docs.devexpress.com/WPF/DevExpress.Xpf.Charts.CustomMarker2DModel.PointTemplate) property.
 
 ## Files to Review 
 
